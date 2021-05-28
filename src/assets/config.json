@@ -1,0 +1,302 @@
+{
+    "configurator": [
+        {
+            "id": 1,
+            "type": "html",
+            "order": 3,
+            "lg": 3,
+            "md": 6,
+            "priority": 4,
+            "data": {
+                "name": "User Count",
+                "value": 420
+            }
+        },
+        {
+            "id": 2,
+            "type": "html",
+            "order": 1,
+            "lg": 3,
+            "md": 6,
+            "priority": 2,
+            "data": {
+                "name": "Total Products",
+                "value": 19
+            }
+        },
+        {
+            "id": 3,
+            "type": "html",
+            "order": 2,
+            "lg": 3,
+            "md": 6,
+            "priority": 3,
+            "data": {
+                "name": "Daily Revenue",
+                "value": 101
+            }
+        },
+        {
+            "id": 4,
+            "type": "html",
+            "order": 4,
+            "lg": 3,
+            "md": 6,
+            "priority": 1,
+            "data": {
+                "name": "Total Cost",
+                "value": 150
+            }
+        },
+        {
+            "id": 5,
+            "type": "pie",
+            "order": 7,
+            "lg": 4,
+            "md": 6,
+            "priority": 9,
+            "options": {
+                "colors": [
+                    "#2E93fA"
+                ],
+                "labels": [
+                    "Team A",
+                    "Team B",
+                    "Team C",
+                    "Team D",
+                    "Team E"
+                ]
+            },
+            "series":{ "data": [
+                44,
+                55,
+                13,
+                43,
+                22
+            ]
+        }
+        },
+        {
+            "id": 6,
+            "type": "bar",
+            "order": 6,
+            "lg": 4,
+            "md": 6,
+            "priority": 7,
+            "options": {
+                "colors": [
+                    "#69d2e7"
+                ],
+                "labels": [
+                    "12am",
+                    "3pm",
+                    "6pm",
+                    "9pm",
+                    "12pm",
+                    "3am",
+                    "6am",
+                    "9am"
+                ]
+            },
+            "series": { "data": [
+                230,
+                750,
+                450,
+                300,
+                280,
+                240,
+                200,
+                190
+            ]}
+        },
+        {
+            "id": 7,
+            "title": "Area Chart",
+            "type": "area",
+            "order": 8,
+            "lg": 12,
+            "md": 12,
+            "priority": 5,
+            "options": {
+                "chart": {
+                    "id": "vuechart-example"
+                },
+                "xaxis": {
+                    "categories": [
+                        1991,
+                        1992,
+                        1993,
+                        1994,
+                        1995,
+                        1996,
+                        1997,
+                        1998
+                    ]
+                }
+            },
+            "series": [
+                {
+                    "name": "series-1",
+                    "data": [
+                        30,
+                        40,
+                        45,
+                        50,
+                        49,
+                        60,
+                        70,
+                        91
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "title": "Data Table",
+            "type": "table",
+            "order": 9,
+            "lg": 12,
+            "md": 12,
+            "priority": 8,
+            "options": {
+                "headers": [
+                    {
+                        "text": "Dessert (100g serving)",
+                        "align": "start",
+                        "sortable": false,
+                        "value": "name"
+                    },
+                    {
+                        "text": "Calories",
+                        "value": "calories"
+                    },
+                    {
+                        "text": "Fat (g)",
+                        "value": "fat"
+                    },
+                    {
+                        "text": "Carbs (g)",
+                        "value": "carbs"
+                    },
+                    {
+                        "text": "Protein (g)",
+                        "value": "protein"
+                    },
+                    {
+                        "text": "Iron (%)",
+                        "value": "iron"
+                    }
+                ],
+                "items": [
+                    {
+                        "name": "Frozen Yogurt",
+                        "calories": 159,
+                        "fat": 6,
+                        "carbs": 24,
+                        "protein": 4,
+                        "iron": "1%"
+                    },
+                    {
+                        "name": "Ice cream sandwich",
+                        "calories": 237,
+                        "fat": 9,
+                        "carbs": 37,
+                        "protein": 4.3,
+                        "iron": "1%"
+                    },
+                    {
+                        "name": "Eclair",
+                        "calories": 262,
+                        "fat": 16,
+                        "carbs": 23,
+                        "protein": 6,
+                        "iron": "7%"
+                    },
+                    {
+                        "name": "Cupcake",
+                        "calories": 305,
+                        "fat": 3.7,
+                        "carbs": 67,
+                        "protein": 4.3,
+                        "iron": "8%"
+                    },
+                    {
+                        "name": "Gingerbread",
+                        "calories": 356,
+                        "fat": 16,
+                        "carbs": 49,
+                        "protein": 3.9,
+                        "iron": "16%"
+                    },
+                    {
+                        "name": "Jelly bean",
+                        "calories": 375,
+                        "fat": 0,
+                        "carbs": 94,
+                        "protein": 0,
+                        "iron": "0%"
+                    },
+                    {
+                        "name": "Lollipop",
+                        "calories": 392,
+                        "fat": 0.2,
+                        "carbs": 98,
+                        "protein": 0,
+                        "iron": "2%"
+                    },
+                    {
+                        "name": "Honeycomb",
+                        "calories": 408,
+                        "fat": 3.2,
+                        "carbs": 87,
+                        "protein": 6.5,
+                        "iron": "45%"
+                    },
+                    {
+                        "name": "Donut",
+                        "calories": 452,
+                        "fat": 25,
+                        "carbs": 51,
+                        "protein": 4.9,
+                        "iron": "22%"
+                    },
+                    {
+                        "name": "KitKat",
+                        "calories": 518,
+                        "fat": 26,
+                        "carbs": 65,
+                        "protein": 7,
+                        "iron": "6%"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 9,
+            "type": "donut",
+            "order": 5,
+            "lg": 4,
+            "md": 6,
+            "priority": 6,
+            "options": {
+                "colors": [
+                    "#2E93fA"
+                ],
+                "labels": [
+                    "Team A",
+                    "Team B",
+                    "Team C",
+                    "Team D",
+                    "Team E"
+                ]
+            },
+            "series": {"data":[
+                44,
+                55,
+                13,
+                43,
+                22
+            ]}
+        }
+    ]
+}
