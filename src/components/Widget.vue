@@ -5,17 +5,15 @@
     <!-- table -->
     <v-data-table
       v-if="priorityIndex >= item.priority && item.type === 'table'"
-      :headers="item.data.headers"
-      :items="item.data.desserts"
+      :headers="item.options.headers"
+      :items="item.options.items"
       :items-per-page="5"
       class="elevation-1"
     ></v-data-table>
     <!-- chart -->
     <apexchart
       v-if="
-        chartOptions &&
-          priorityIndex >= item.priority &&
-          chartTypes.includes(item.type)
+        chartOptions && priorityIndex >= item.priority && item.type !== 'table'
       "
       width="100%"
       :type="item.type"
@@ -26,7 +24,8 @@
     </apexchart>
 
     <v-card-title v-if="priorityIndex > item.priority && item.type === 'html'">
-      {{ item.data.name }}: {{ item.data.value }}
+      <span class="mr-3"> {{ item.data.name }}: {{ item.data.value }} </span>
+      <v-icon>{{ this.svgpath }} </v-icon>
     </v-card-title>
     <!-- spinner  -->
     <div v-if="priorityIndex < item.priority">
@@ -39,31 +38,20 @@
 </template>
 
 <script>
+import { mdiAccount } from "@mdi/js";
 export default {
   data: () => {
     return {
       chartOptions: null,
       series: [],
-      chartTypes: ["pie", "bar", "area", "donut", "radialBar"]
+      svgpath: mdiAccount
     };
   },
   name: "ChartLoader",
   props: ["item", "increasePriorityIndex", "priorityIndex"],
   mounted() {
-    if (this.item.type === "pie" || this.item.type === "donut") {
-      this.chartOptions = {
-        labels: this.item.data.labels
-      };
-      this.series = this.item.data.series;
-    } else {
-      this.chartOptions = {
-        colors: this.item.colors,
-        xaxis: {
-          categories: this.item.data.labels
-        }
-      };
-      this.series = [{ data: this.item.data.series }];
-    }
+    this.chartOptions = this.item.options;
+    this.series = this.item.series;
   },
   updated() {
     if (this.priorityIndex === this.item.priority) {

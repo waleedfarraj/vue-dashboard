@@ -10,7 +10,7 @@ const state = {
 const actions = {
   getWidgetsArray({ commit }) {
     axios
-      .get("https://run.mocky.io/v3/717a85d7-72e5-4860-b244-7be74ae0f9f4")
+      .get("https://run.mocky.io/v3/fd9db4dd-ada3-45c3-91b8-0abe418a7d28")
       .then(response => {
         commit("setData", response.data);
         //after getting the mocked data from the api we are commiting the mutation to change the state of widget array.
