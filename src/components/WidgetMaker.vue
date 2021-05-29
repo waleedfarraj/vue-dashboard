@@ -3,8 +3,8 @@
     <v-row class="align-items-center">
       <v-col
         class="col"
-        v-for="item in widgets"
-        :key="item.order"
+        v-for="item in allWidgets"
+        :key="item.id"
         :cols="12"
         :order="item.order"
         :lg="item.lg"
@@ -25,7 +25,7 @@
 
 <script>
 import Widget from "@/components/Widget.vue";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "WidgetsMaker",
   components: {
@@ -55,17 +55,13 @@ export default {
     priorityArr: [],
     currentPriority: 0
   }),
-  computed: {
-    widgets() {
-      return this.$store.state.widgetsArray.configurator;
-    }
-  },
-  mounted() {
+  computed: mapGetters(["allWidgets"]),
+  created() {
     //dispatching the get widget actions that will call the mock api to get the data
     this.getWidgetsArray();
   },
   updated() {
-    let widgetArr = this.$store.state.widgetsArray.configurator;
+    let widgetArr = this.allWidgets;
     let tempArr = [];
     widgetArr.forEach(e => {
       tempArr.push(e.priority);
