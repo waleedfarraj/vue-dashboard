@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar class="d-flex justify-center" app color="white" dark>
+  <v-app-bar class="d-flex justify-center" app color="white">
     <div id="headerContent" class="d-flex align-center justify-center">
       <v-img
         contain
