@@ -1,4 +1,4 @@
-# vue-dashboard
+# Vue-Dashboard
 
 A _Dynamic_ _Dashboard_ component using **vue** that render a dynamic widget that will take  the shape of the data passed down to it , depending it is chart , html or table.
 the data is coming from a mocked api using run.mockey
@@ -11,7 +11,11 @@ the data is coming from a mocked api using run.mockey
 - apexcharts
 - mdi-icons
 
-## instaltion adn running 
+## Instaltion adn running 
 
 - npm i 
 - npm run serve
+
+## Deployed link
+
+https://dynamic-dashboard-vue.netlify.app/
