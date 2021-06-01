@@ -30,7 +30,7 @@
             "order": 2,
             "lg": 3,
             "md": 6,
-            "priority": 3,
+            "priority": 1,
             "data": {
                 "name": "Online Users",
                 "value": 101
@@ -54,7 +54,7 @@
             "order": 6,
             "lg": 4,
             "md": 6,
-            "priority": 9,
+            "priority": 1,
             "options": {
                 "colors": [
                     "#FFA500","#FFA490","#FFA480","#FFA470","#FFA460"
@@ -82,7 +82,7 @@
             "order": 7,
             "lg": 4,
             "md": 12,
-            "priority": 7,
+            "priority": 2,
             "options": {
                 "colors": [
                     "#69d2e7","#69d2e5","#69d2e3","#69d2e1","#69d2e7","#69d2e5","#69d2e3","#69d2e1"
@@ -116,7 +116,7 @@
             "order": 8,
             "lg": 12,
             "md": 12,
-            "priority": 5,
+            "priority": 2,
             "options": {
                 "chart": {
                     "id": "vuechart-example"

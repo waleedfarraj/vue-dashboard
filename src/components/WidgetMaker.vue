@@ -14,8 +14,8 @@
           <Widget
             class="widget"
             :item="item"
-            :increasePriorityIndex="increasePriorityIndex"
-            :priorityIndex="priorityIndex"
+            :goNextPriority="goNextPriority"
+            :currentPriority="currentPriority"
           />
         </v-card>
       </v-col>
@@ -31,12 +31,27 @@ export default {
     Widget
   },
   methods: {
-    increasePriorityIndex: function() {
-      this.priorityIndex++;
+    goNextPriority() {
+      if (this.priorityIndex < this.priorityArr.length) {
+        this.priorityIndex++;
+        let temp = this.priorityArr[this.priorityIndex];
+        temp ? (this.currentPriority = temp) : 0;
+      }
+    },
+    arrangeWidgets() {
+      let widgets = this.$store.state.widgetsArray.configurator;
+      console.log("widgets--->", widgets);
+      widgets.forEach(e => {
+        this.priorityArr.push(e.priorityIndex);
+      });
+      console.log(this.priorityArr);
+      return this.$store.state.widgetsArray.configurator;
     }
   },
   data: () => ({
-    priorityIndex: 0
+    priorityIndex: 0,
+    priorityArr: [],
+    currentPriority: 0
   }),
   computed: {
     widgets() {
@@ -46,9 +61,17 @@ export default {
   mounted() {
     //dispatching the get widget actions that will call the mock api to get the data
     this.$store.dispatch("getWidgetsArray");
-    setTimeout(() => {
-      this.increasePriorityIndex();
-    }, 400);
+  },
+  updated() {
+    let widgetArr = this.$store.state.widgetsArray.configurator;
+    let tempArr = [];
+    widgetArr.forEach(e => {
+      tempArr.push(e.priority);
+    });
+    const removedDuplicates = [...new Set(tempArr)];
+    this.priorityArr = removedDuplicates.sort((a, b) => a - b);
+    const priorityArray = this.priorityArr;
+    this.currentPriority = priorityArray[this.priorityIndex];
   }
 };
 </script>

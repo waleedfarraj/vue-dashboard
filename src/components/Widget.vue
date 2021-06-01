@@ -1,10 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container ">
     <!-- title -->
-    <h3 v-if="priorityIndex > item.priority && item.title">{{ item.title }}</h3>
+    <h3 v-if="currentPriority > item.priority && item.title">
+      {{ item.title }}
+    </h3>
     <!-- table -->
     <v-data-table
-      v-if="priorityIndex >= item.priority && item.type === 'table'"
+      v-if="currentPriority >= item.priority && item.type === 'table'"
       :headers="item.options.headers"
       :items="item.options.items"
       :items-per-page="5"
@@ -13,7 +15,9 @@
     <!-- chart -->
     <apexchart
       v-if="
-        chartOptions && priorityIndex >= item.priority && item.type !== 'table'
+        chartOptions &&
+          currentPriority >= item.priority &&
+          item.type !== 'table'
       "
       width="100%"
       :type="item.type"
@@ -23,15 +27,20 @@
     >
     </apexchart>
 
-    <v-card-title v-if="priorityIndex > item.priority && item.type === 'html'">
+    <v-card-title
+      id="html"
+      v-if="currentPriority > item.priority && item.type === 'html'"
+    >
       <span class="mr-3"> {{ item.data.name }}: {{ item.data.value }} </span>
       <v-icon>{{ this.svgpath }} </v-icon>
     </v-card-title>
     <!-- spinner  -->
-    <div v-if="priorityIndex < item.priority">
+    <div id="spinner" v-if="currentPriority < item.priority">
       <v-progress-circular
         indeterminate
         color="deep-orange"
+        width="7"
+        size="70"
       ></v-progress-circular>
     </div>
   </div>
@@ -48,17 +57,27 @@ export default {
     };
   },
   name: "ChartLoader",
-  props: ["item", "increasePriorityIndex", "priorityIndex"],
+  props: ["item", "goNextPriority", "currentPriority"],
   mounted() {
     this.chartOptions = this.item.options;
     this.series = this.item.series;
   },
   updated() {
-    if (this.priorityIndex === this.item.priority) {
+    if (this.currentPriority === this.item.priority) {
       setTimeout(() => {
-        this.increasePriorityIndex();
+        this.goNextPriority();
       }, 500);
     }
   }
 };
 </script>
+<style scoped lang="scss">
+.container {
+  #spinner,
+  #html {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+  }
+}
+</style>
