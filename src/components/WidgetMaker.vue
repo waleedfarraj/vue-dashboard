@@ -25,6 +25,7 @@
 
 <script>
 import Widget from "@/components/Widget.vue";
+import { mapActions } from "vuex";
 export default {
   name: "WidgetsMaker",
   components: {
@@ -46,7 +47,8 @@ export default {
       });
       console.log(this.priorityArr);
       return this.$store.state.widgetsArray.configurator;
-    }
+    },
+    ...mapActions(["getWidgetsArray"])
   },
   data: () => ({
     priorityIndex: 0,
@@ -60,7 +62,7 @@ export default {
   },
   mounted() {
     //dispatching the get widget actions that will call the mock api to get the data
-    this.$store.dispatch("getWidgetsArray");
+    this.getWidgetsArray();
   },
   updated() {
     let widgetArr = this.$store.state.widgetsArray.configurator;
