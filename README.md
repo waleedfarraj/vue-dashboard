@@ -13,8 +13,8 @@ the data is coming from a mocked api using run.mockey
 
 ## Instaltion and running 
 
-- npm i 
-- npm run serve
+1. npm i 
+2. npm run serve
 
 ## Deployed link
 
