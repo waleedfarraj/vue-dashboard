@@ -11,7 +11,7 @@ the data is coming from a mocked api using run.mockey
 - apexcharts
 - mdi-icons
 
-## Instaltion adn running 
+## Instaltion and running 
 
 - npm i 
 - npm run serve
